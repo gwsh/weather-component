@@ -1,0 +1,408 @@
+/*
+    @Date: 2019-11-04 17:38:47
+    @Description: 组件样式  
+    @Author: gwsh
+ */
+* {
+    /* padding: 0;
+    margin: 0; */
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+#weather-view-he {
+    font-family: PingFang SC, Microsoft YaHei, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    background: #333;
+    border-radius: .4em;
+    font-size: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#weather-view-he-header {
+    background-color: rgb(49, 58, 68);
+    /* width: 410px;
+    height: 200px; */
+    overflow: hidden;
+    font-size: 12px;
+}
+
+#weather-view-he-header-left {
+    display: block;
+    float: left;
+    position: relative;
+    width: 58.333333%;
+    overflow: hidden;
+}
+
+#weather-view-he-header-left-l {
+    text-align: left;
+    padding: 5px 2px 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+#weather-view-he-header-left-l img {
+    width: .68em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: 9px;
+}
+
+#weather-view-he-header-left-l span {
+    width: 2.68em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+
+#weather-view-he-header-right {
+    display: block;
+    float: left;
+    position: relative;
+    width: 41.666666%;
+    overflow: hidden;
+}
+
+.wv-lt-refresh {
+    text-align: right;
+    padding: .2em 0 .1em;
+    cursor: pointer;
+}
+
+.wv-lt-refresh span {
+    font-size: 1em;
+    font-weight: 200;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1em;
+    margin-top: .3em;
+}
+
+#weather-view-content {
+    /* background-color: #fff; */
+    overflow: hidden;
+    /* height: 100px; */
+    position: relative;
+}
+
+#weather-view-content-left {
+    display: block;
+    float: left;
+    /* position: relative; */
+    width: 57.560976%;
+    height: 100%;
+}
+
+.wv-v-h-now {
+    padding: .08em .65em 0;
+    height: 100%;
+}
+
+#weather-view-content .wv-img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#weather-view-content .wv-img>img {
+    width: 4.2em;
+    margin: .2em 1em .2em 0;
+}
+
+#weather-view-content .wv-n-h-now-content {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#weather-view-content .wv-n-h-now-txt {
+    font-size: 1.3em;
+}
+
+#weather-view-content .wv-n-h-now-tmp {
+    font-size: 2em;
+    padding-top: .1em;
+}
+
+#weather-view-content .wv-n-h-now-tmp>span {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+
+#weather-view-content .wv-n-h-col-2 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 16.66666666%;
+}
+
+#weather-view-content .wv-n-h-now-rain {
+    position: absolute;
+    text-align: right;
+    margin-top: 2.8em;
+    right: -183px;
+    color: #fff;
+}
+
+#weather-view-content .wv-n-h-now-rain>img {
+    width: 1.4em;
+    margin: .2em 0 0;
+}
+
+#weather-view-content .wv-n-h-now-rain>span {
+    position: relative;
+    bottom: 2px;
+}
+
+
+#weather-view-content .wv-n-h-col-12 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+#weather-view-content .wv-n-h-col-6 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 50%;
+}
+
+#weather-view-content .wv-n-h-now-aqi {
+    text-align: left;
+    padding-top: .4em;
+}
+
+#weather-view-content .wv-n-h-now-aqi-item {
+    font-size: 1.2em;
+}
+
+#weather-view-content .wv-n-h-now-aqi-item-color-3 {
+    color: #e59c3b;
+}
+
+#weather-view-content .air-quality {
+    /* color: red; */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#weather-view-content .wv-n-h-label {
+    background-color: #e59c3b;
+    width: .2em;
+    border-radius: .1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#weather-view-content .wv-n-h-now-alarm {
+    display: block;
+    float: right;
+    padding-top: .1em;
+}
+
+#weather-view-content .wv-a-alarm {
+    padding: .2em 1em;
+    font-size: 1em;
+    background-color: #8a4daa;
+    border-radius: 1.1em;
+    font-weight: 400;
+}
+
+.wv-n-h-now-base {
+    box-sizing: border-box;
+    padding: 1em 0 0;
+}
+
+.wv-nb-now-base {
+    /* height: 100%;
+    width: 100%; */
+    overflow: hidden;
+}
+
+.wv-nb-now-base>div:first-child {
+    padding: 0 0 .1em;
+}
+
+/* .wv-nb-now-base>div:last-child {
+    padding: .39em 0 0;
+} */
+
+.wv-nb-now-base-item {
+    font-size: 1em;
+    text-align: left;
+    color: #fff;
+}
+
+.wv-nb-col-3 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.wv-nb-row {
+    overflow: hidden;
+}
+
+.wv-nb-now-base>div:last-child {
+    padding: .9em 0 0;
+}
+
+.wv-v-h-copyright {
+    position: absolute;
+    bottom: .6em;
+    left: .7em;
+    text-align: left;
+}
+
+.wv-cr-h-copyright {
+    text-align: left;
+}
+
+/* 右边 star */
+.wv-v-h-col-right {
+    display: block;
+    float: left;
+    position: relative;
+    width: 40.4381%;
+    /* height: 200px; */
+    /* background: pink; */
+}
+
+#content-right .wv-v-h-forecast {
+    padding: .2em 0 0 .2em;
+}
+
+#content-right .wv-f-h-row {
+    overflow: hidden;
+}
+
+#content-right .wv-f-h-col-12 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+    /* background-color: red; */
+    /* height: 30px; */
+}
+
+#content-right .wv-f-h-forecast-item {
+    text-align: center;
+    margin: .4em 0 0;
+}
+
+#content-right .wv-f-h-col-4 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 33.33333333%;
+    text-align: left;
+}
+
+#content-right .wv-f-h-forecast-date {
+    width: 48%;
+}
+
+#content-right .wv-f-h-forecast-date>a {
+    font-size: 1em;
+    color: hsla(0, 0%, 100%, .8);
+    padding-top: .45em;
+    text-align: left;
+}
+
+#content-right .wv-f-h-a {
+    text-decoration: none;
+}
+
+#content-right span.wv-f-h-forecast-aqi-3 {
+    color: #e59c3b;
+}
+
+#content-right span.wv-f-h-forecast-aqi-2 {
+    color: #e4c600;
+}
+
+#content-right .wv-f-h-forecast-date>span {
+    font-size: 1em;
+}
+
+#content-right .wv-f-h-forecast-img {
+    width: 14%;
+    text-align: left;
+}
+
+#content-right .wv-f-h-forecast-img>a>img {
+    width: 2.1em;
+    position: relative;
+    top: -.3em;
+}
+
+#content-right .wv-f-h-forecast-tmp {
+    text-align: right;
+    padding-right: 0;
+    width: 38%;
+}
+
+#content-right .wv-f-h-forecast-tmp>a {
+    font-size: 1em;
+    text-align: right;
+    padding: .3em .1em 0 0;
+    color: #fff;
+}
+
+/* 割线 star */
+.wv-v-h-forecast-line {
+    margin: 0;
+    border-bottom: .1em solid hsla(0, 0%, 100%, .2);
+}
+
+.zanque {
+    font-size: 1em;
+    color: #fff;
+}
+
+
+/* 右边 end */
+
+/* 底部数据来源 star */
+.wv-cr-h-copyright>a {
+    text-decoration: none;
+    font-size: 1em;
+    text-align: left;
+    color: hsla(0, 0%, 100%, .8);
+}
+
+/* 底部数据来源 end */
+
+/* 中线 star */
+.wv-v-h-col-middle {
+    display: block;
+    float: left;
+    position: absolute;
+    width: .2em;
+    height: 13em;
+    margin: .3em 0 0;
+    left: 233px;
+    top: 32px;
+    border-left: .1em solid hsla(0, 0%, 100%, .4);
+}
+
+/* 中线 end */
