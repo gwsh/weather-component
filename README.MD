@@ -4,7 +4,7 @@
 
 ![avatar](http://qiniu.chrisblog.top/gwsh-weather-img.png)
 
-##1.使用方法
+### 使用方式
 
 第一步 引入 gwsh-weather. js
 
