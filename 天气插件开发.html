@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-04 17:38:47
- * @LastEditTime: 2019-11-04 22:32:32
+ * @LastEditTime: 2019-11-04 23:32:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /dwdmeo/js/天气插件开发.html
@@ -16,8 +16,8 @@
     <title>天气样式</title>
     <style>
         * {
-            /* padding: 0;
-            margin: 0; */
+            padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
 
@@ -277,6 +277,146 @@
         .wv-nb-now-base>div:last-child {
             padding: .9em 0 0;
         }
+
+        .wv-v-h-copyright {
+            position: absolute;
+            bottom: .6em;
+            left: .7em;
+            text-align: left;
+        }
+
+        .wv-cr-h-copyright {
+            text-align: left;
+        }
+
+        /* 右边 star */
+        .wv-v-h-col-right {
+            display: block;
+            float: left;
+            position: relative;
+            width: 40.4381%;
+            /* height: 200px; */
+            /* background: pink; */
+        }
+
+        #content-right .wv-v-h-forecast {
+            padding: .2em 0 0 .2em;
+        }
+
+        #content-right .wv-f-h-row {
+            overflow: hidden;
+        }
+
+        #content-right .wv-f-h-col-12 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 100%;
+            /* background-color: red; */
+            /* height: 30px; */
+        }
+
+        #content-right .wv-f-h-forecast-item {
+            text-align: center;
+            margin: .4em 0 0;
+        }
+
+        #content-right .wv-f-h-col-4 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 33.33333333%;
+            text-align: left;
+        }
+
+        #content-right .wv-f-h-forecast-date {
+            width: 48%;
+        }
+
+        #content-right .wv-f-h-forecast-date>a {
+            font-size: 1em;
+            color: hsla(0, 0%, 100%, .8);
+            padding-top: .45em;
+            text-align: left;
+        }
+
+        #content-right .wv-f-h-a {
+            text-decoration: none;
+        }
+
+        #content-right span.wv-f-h-forecast-aqi-3 {
+            color: #e59c3b;
+        }
+
+        #content-right span.wv-f-h-forecast-aqi-2 {
+            color: #e4c600;
+        }
+
+        #content-right .wv-f-h-forecast-date>span {
+            font-size: 1em;
+        }
+
+        #content-right .wv-f-h-forecast-img {
+            width: 14%;
+            text-align: left;
+        }
+
+        #content-right .wv-f-h-forecast-img>a>img {
+            width: 2.1em;
+            position: relative;
+            top: -.3em;
+        }
+
+        #content-right .wv-f-h-forecast-tmp {
+            text-align: right;
+            padding-right: 0;
+            width: 38%;
+        }
+
+        #content-right .wv-f-h-forecast-tmp>a {
+            font-size: 1em;
+            text-align: right;
+            padding: .3em .1em 0 0;
+            color: #fff;
+        }
+
+        /* 割线 star */
+        .wv-v-h-forecast-line {
+            margin: 0;
+            border-bottom: .1em solid hsla(0, 0%, 100%, .2);
+        }
+        .zanque {
+            font-size:1em ;
+            color: #fff;
+        }
+
+
+        /* 右边 end */
+
+        /* 底部数据来源 star */
+        .wv-cr-h-copyright>a {
+            text-decoration: none;
+            font-size: 1em;
+            text-align: left;
+            color: hsla(0, 0%, 100%, .8);
+        }
+
+        /* 底部数据来源 end */
+
+        /* 中线 star */
+        .wv-v-h-col-middle {
+            display: block;
+            float: left;
+            position: absolute;
+            width: .2em;
+            height: 13em;
+            margin: .3em 0 0;
+            left: 233px;
+            top: 32px;
+            border-left: .1em solid hsla(0, 0%, 100%, .4);
+        }
+
+        /* 中线 end */
     </style>
 </head>
 
@@ -344,7 +484,7 @@
                         <!-- 预警板块 end -->
                     </div>
                     <!-- 空气质量、预警 end -->
-                    
+                    <!-- 数据集（风、降水量、湿度、大气压强） star -->
                     <div class="wv-n-h-col-12">
                         <div class="wv-n-h-now-base">
                             <div class="wv-nb-now-base">
@@ -379,10 +519,97 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- 数据集（风、降水量、湿度、大气压强） end -->
                 </div>
             </div>
+            <!-- 天气预测 star -->
+            <div class="wv-v-h-col-right" id="content-right">
+                <div class="wv-v-h-forecast">
+                    <div class="wv-f-h-forecast">
+                        <div class="wv-f-h-row">
+                            <div class="wv-f-h-col-12 wv-f-h-forecast-item">
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-date" style="width:42%">
+                                    <a href="" class="wv-f-h-a">今天</a>
+                                    <span class="wv-f-h-forecast-aqi-3">轻度</span>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-img" style="width:20%">
+                                    <a href="" class="wv-f-h-a">
+                                        <img src="https://apip.weatherdt.com/view/static/images/cond/cond-a-01n.png"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-tmp">
+                                    <a href="" class="wv-f-h-a">
+                                        12°/22°
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wv-f-h-row">
+                            <div class="wv-f-h-col-12 wv-f-h-forecast-item">
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-date" style="width:42%">
+                                    <a href="" class="wv-f-h-a">明天</a>
+                                    <span class="wv-f-h-forecast-aqi-2">良</span>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-img" style="width:20%">
+                                    <a href="" class="wv-f-h-a">
+                                        <img src="https://apip.weatherdt.com/view/static/images/cond/cond-a-01n.png"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-tmp">
+                                    <a href="" class="wv-f-h-a">
+                                        12°/22°
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wv-f-h-row">
+                            <div class="wv-f-h-col-12 wv-f-h-forecast-item">
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-date" style="width:42%">
+                                    <a href="" class="wv-f-h-a">后天</a>
+                                    <span class="wv-f-h-forecast-aqi-3">轻度</span>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-img" style="width:20%">
+                                    <a href="" class="wv-f-h-a">
+                                        <img src="https://apip.weatherdt.com/view/static/images/cond/cond-a-02n.png"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <div class="wv-f-h-col-4 wv-f-h-forecast-tmp">
+                                    <a href="" class="wv-f-h-a">
+                                        12°/22°
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="wv-v-h-forecast-line"></div>
+                </div>
+                <div class="zanque">
+                    暂缺
+                </div>
+            </div>
+            <!-- 天气预测 end -->
+
         </div>
+        <!-- 中线 star -->
+        <div class="wv-v-h-col-middle"></div>
+        <!-- 中线 end -->
+
+
+        <!-- 数据来源 star -->
+        <div class="wv-v-h-copyright">
+            <div class="wv-cr-h-copyright">
+                <a href="http://www.weather.com.cn/">
+                    数据来源于中国气象网
+                </a>
+            </div>
+        </div>
+        <!-- 数据来源 end -->
+
     </div>
 </body>
 
