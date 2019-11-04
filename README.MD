@@ -1,5 +1,9 @@
 # JQuery版天气插件
 
+***效果图 如下（注：样式参考了中国气象网，But这是可以自己二次修改的嘻嘻，拜拜，开源MTK）***
+
+![avatar](http://qiniu.chrisblog.top/gwsh-weather-img.png)
+
 ##1.使用方法
 
 第一步 引入 gwsh-weather. js
