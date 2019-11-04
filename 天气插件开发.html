@@ -1,0 +1,389 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-11-04 17:38:47
+ * @LastEditTime: 2019-11-04 22:32:32
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /dwdmeo/js/天气插件开发.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天气样式</title>
+    <style>
+        * {
+            /* padding: 0;
+            margin: 0; */
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+
+        #weather-view-he {
+            font-family: PingFang SC, Microsoft YaHei, Avenir, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            background: #333;
+            border-radius: .4em;
+            font-size: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #weather-view-he-header {
+            background-color: rgb(49, 58, 68);
+            /* width: 410px;
+            height: 200px; */
+            overflow: hidden;
+            font-size: 12px;
+        }
+
+        #weather-view-he-header-left {
+            display: block;
+            float: left;
+            position: relative;
+            width: 58.333333%;
+            overflow: hidden;
+        }
+
+        #weather-view-he-header-left-l {
+            text-align: left;
+            padding: 5px 2px 0;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        #weather-view-he-header-left-l img {
+            width: .68em;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+            margin-left: 9px;
+        }
+
+        #weather-view-he-header-left-l span {
+            width: 2.68em;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+
+        #weather-view-he-header-right {
+            display: block;
+            float: left;
+            position: relative;
+            width: 41.666666%;
+            overflow: hidden;
+        }
+
+        .wv-lt-refresh {
+            text-align: right;
+            padding: .2em 0 .1em;
+            cursor: pointer;
+        }
+
+        .wv-lt-refresh span {
+            font-size: 1em;
+            font-weight: 200;
+            color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 1em;
+            margin-top: .3em;
+        }
+
+        #weather-view-content {
+            /* background-color: #fff; */
+            overflow: hidden;
+            /* height: 100px; */
+            position: relative;
+        }
+
+        #weather-view-content-left {
+            display: block;
+            float: left;
+            /* position: relative; */
+            width: 57.560976%;
+            height: 100%;
+        }
+
+        .wv-v-h-now {
+            padding: .08em .65em 0;
+            height: 100%;
+        }
+
+        #weather-view-content .wv-img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #weather-view-content .wv-img>img {
+            width: 4.2em;
+            margin: .2em 1em .2em 0;
+        }
+
+        #weather-view-content .wv-n-h-now-content {
+            display: inline-block;
+            vertical-align: middle;
+            color: #fff;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #weather-view-content .wv-n-h-now-txt {
+            font-size: 1.3em;
+        }
+
+        #weather-view-content .wv-n-h-now-tmp {
+            font-size: 2em;
+            padding-top: .1em;
+        }
+
+        #weather-view-content .wv-n-h-now-tmp>span {
+            font-size: 1em;
+            font-weight: 300;
+        }
+
+
+        #weather-view-content .wv-n-h-col-2 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 16.66666666%;
+        }
+
+        #weather-view-content .wv-n-h-now-rain {
+            position: absolute;
+            text-align: right;
+            margin-top: 2.8em;
+            right: -183px;
+            color: #fff;
+        }
+
+        #weather-view-content .wv-n-h-now-rain>img {
+            width: 1.4em;
+            margin: .2em 0 0;
+        }
+
+        #weather-view-content .wv-n-h-now-rain>span {
+            position: relative;
+            bottom: 2px;
+        }
+
+
+        #weather-view-content .wv-n-h-col-12 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 100%;
+        }
+
+        #weather-view-content .wv-n-h-col-6 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 50%;
+        }
+
+        #weather-view-content .wv-n-h-now-aqi {
+            text-align: left;
+            padding-top: .4em;
+        }
+
+        #weather-view-content .wv-n-h-now-aqi-item {
+            font-size: 1.2em;
+        }
+
+        #weather-view-content .wv-n-h-now-aqi-item-color-3 {
+            color: #e59c3b;
+        }
+
+        #weather-view-content .air-quality {
+            /* color: red; */
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #weather-view-content .wv-n-h-label {
+            background-color: #e59c3b;
+            width: .2em;
+            border-radius: .1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #weather-view-content .wv-n-h-now-alarm {
+            display: block;
+            float: right;
+            padding-top: .1em;
+        }
+
+        #weather-view-content .wv-a-alarm {
+            padding: .2em 1em;
+            font-size: 1em;
+            background-color: #8a4daa;
+            border-radius: 1.1em;
+            font-weight: 400;
+        }
+
+        .wv-n-h-now-base {
+            box-sizing: border-box;
+            padding: 1em 0 0;
+        }
+
+        .wv-nb-now-base {
+            /* height: 100%;
+            width: 100%; */
+            overflow: hidden;
+        }
+
+        .wv-nb-now-base>div:first-child {
+            padding: 0 0 .1em;
+        }
+
+        /* .wv-nb-now-base>div:last-child {
+            padding: .39em 0 0;
+        } */
+
+        .wv-nb-now-base-item {
+            font-size: 1em;
+            text-align: left;
+            color: #fff;
+        }
+
+        .wv-nb-col-3 {
+            display: block;
+            float: left;
+            position: relative;
+            width: 25%;
+        }
+
+        .wv-nb-row {
+            overflow: hidden;
+        }
+
+        .wv-nb-now-base>div:last-child {
+            padding: .9em 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="weather-view-he" style="background-color: rgb(49, 58, 68); width: 410px; height: 200px; font-size: 12px;">
+        <!-- hearder 坐标 、 更新时间  star -->
+        <div id="weather-view-he-header">
+            <div id="weather-view-he-header-left">
+                <div id="weather-view-he-header-left-l">
+                    <img src="https://apip.weatherdt.com/view/static/images/location_white.png">
+                    <span>长沙</span>
+                </div>
+            </div>
+            <div id="weather-view-he-header-right">
+                <div class="wv-lt-refresh">
+                    <span>刚刚更新</span>
+                </div>
+            </div>
+        </div>
+        <!-- hearder 坐标 、 更新时间  end -->
+
+        <div id="weather-view-content">
+            <div id="weather-view-content-left" style="width: 57.561%;">
+                <div class="wv-v-h-now">
+                    <!-- 天气Logo、温度 star -->
+                    <div class="wv-img">
+                        <img src="https://apip.weatherdt.com/view/static/images/cond/cond-a-01d.png" alt="">
+                    </div>
+                    <div class="wv-n-h-now-content">
+                        <div class="wv-n-h-now-txt">
+                            <span>多云</span>
+                        </div>
+                        <div class="wv-n-h-now-tmp">
+                            <span>21°</span>
+                        </div>
+                    </div>
+                    <!-- 天气Logo、温度 end -->
+
+                    <!-- 降水预测 star -->
+                    <div class="wv-n-h-col-2">
+                        <div class="wv-n-h-now-rain">
+                            <img src="https://apip.weatherdt.com/view/static/images/water-white.png" alt="">
+                            <span>未来两小时无雨</span>
+                        </div>
+                    </div>
+                    <!-- 降水预测 end -->
+                    <!-- 空气质量、预警 star -->
+                    <div class="wv-n-h-col-12">
+                        <!-- 空气质量 star -->
+                        <div class="wv-n-h-col-6 wv-n-h-now-aqi">
+                            <div class="wv-n-h-now-aqi-item wv-n-h-now-aqi-item-color-3">
+                                <div class="wv-n-h-label"></div>
+                                <span class="air-quality">轻度</span>
+                            </div>
+                        </div>
+                        <!-- 空气质量 star -->
+                        <!-- 预警板块 star -->
+                        <div class="wv-n-h-col-6">
+                            <div class="wv-n-h-now-alarm">
+                                <div class="wv-a-alarm" style="background-color: rgb(228, 198, 0);">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 预警板块 end -->
+                    </div>
+                    <!-- 空气质量、预警 end -->
+                    
+                    <div class="wv-n-h-col-12">
+                        <div class="wv-n-h-now-base">
+                            <div class="wv-nb-now-base">
+                                <div class="wv-nb-row">
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>西北风</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>1级</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>降水量</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>0.0mm</div>
+                                    </div>
+                                </div>
+                                <div class="wv-nb-row">
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>湿度</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>66%</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>大气压强</div>
+                                    </div>
+                                    <div class="wv-nb-col-3 wv-nb-now-base-item">
+                                        <div>1017.7hpa</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
