@@ -22,9 +22,7 @@
 <div id="gwsh-weather"></div>
 ```
 
-
-
-​	
+​
 
 最　后 需要你修改 下载后的 weather-component.js  中的 天气请求数据
 
